@@ -29,7 +29,7 @@ bgte
                 <a href="h05.php">Harjutus 5</a>
             </li>
             <li class="list-group-item  bg-info p-3">
-                <a href="h06.php">Harjutus 6</a>
+                <a href="login.php">Harjutus 6</a>
             </li>
             <li class="list-group-item  bg-light p-3">
                 <a href="h07.php">Harjutus 7</a>

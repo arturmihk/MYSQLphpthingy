@@ -32,10 +32,10 @@ session_start();
             $username = htmlspecialchars($_GET['username']);
             $parool = htmlspecialchars($_GET['parool']);
 
-            $stmt = $conn->prepare("SELECT parool FROM kasutajad WHERE kasutaja = ?");
-            $stmt->bind_param("s", $username);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $asi = $conn->prepare("SELECT parool FROM kasutajad WHERE kasutaja = ?");
+            $asi->bind_param("s", $username);
+            $asi->execute();
+            $result = $asi->get_result();
 
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -51,7 +51,7 @@ session_start();
             } else {
                 echo "<div class='alert alert-danger mt-3'>User not found!</div>";
             }
-            $stmt->close();
+            $asi->close();
         }
         ?>
 

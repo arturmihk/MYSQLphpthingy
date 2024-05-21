@@ -41,29 +41,28 @@ require_once 'config.php';
             $username = htmlspecialchars($_GET['username']);
             $parool = htmlspecialchars($_GET['parool']);
 
-            $stmt = $conn->prepare("SELECT COUNT(*) as count FROM kasutajad WHERE kasutaja = ?");
-            $stmt->bind_param("s", $username);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $asi = $conn->prepare("SELECT COUNT(*) as count FROM kasutajad WHERE kasutaja = ?");
+            $asi->bind_param("s", $username);
+            $asi->execute();
+            $result = $asi->get_result();
             $user_count = $result->fetch_assoc()['count'];
 
             if ($user_count > 0) {
                 echo "<div class='alert alert-danger mt-3'>Kas sa pole juba seda kontot endale teinud, võiks mäletada kus teil kontod on tehtud.</div>";
             } else {
                 if (strlen($parool) < 8) {
-                    echo "<div class='alert alert-warning mt-3'>Parool peab olema 8 ühikut pikk, muidu ma ei luba teil kontot teha ja peate patja nutma :)</div>";
-                } else {
+                    echo "<div class='alert alert-warning mt-3'>Mingi lahe error, kui said selle, siis palju õnne võitsite 50€ klikkige alloleval lingile et endale 50€ saada. <br> <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>ainultvõitjatele</a> <br> Tegelikult peab parrol olema 8 ühikut pikk:)</div>";                } else {
                     $hashed = password_hash($parool, PASSWORD_DEFAULT);
-                    $stmt = $conn->prepare("INSERT INTO kasutajad (kasutaja, parool) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $username, $hashed);
+                    $asi = $conn->prepare("INSERT INTO kasutajad (kasutaja, parool) VALUES (?, ?)");
+                    $asi->bind_param("ss", $username, $hashed);
 
-                    if ($stmt->execute()) {
+                    if ($asi->execute()) {
                         header("Location: admin.php");
                         exit;
                     } else {
-                        echo "<div class='alert alert-danger mt-3'>Error in registration!</div>";
+                        echo "<div class='alert alert-danger mt-3'>Mingi lahe error, kui said selle, siis palju õnne võitsite 50€ klikkige alloleval lingile et endale 50€ saada. <br> <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>ainultvõitjatele</a></div>";
                     }
-                    $stmt->close();
+                    $asi->close();
                 }
             }
         }
