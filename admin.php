@@ -21,9 +21,11 @@ require_once 'config.php';
 <body>
     <div class="container">
         <a href="logout.php" class="btn btn-danger my-2">Log Out</a>
+        <a href="uudised.php" class="btn btn-primary my-2">uudised</a>
+        <a href="tagasiside.php" class="btn btn-secondary my-2">tagasiside</a>
         <h1>Admini paneeli asjanduse värk</h1>
         <hr>
-        <h2>Registreerimis asjandus, ma ei saa aru mis see on, ja kuidas see töötab aga see töötab  </h2>
+        <h2>Registreerimis asjandus, see töötab</h2>
         <form action="#" method="get">
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>

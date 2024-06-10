@@ -32,10 +32,10 @@ bgte
                 <a href="login.php">Harjutus 6</a>
             </li>
             <li class="list-group-item  bg-light p-3">
-                <a href="h07.php">Harjutus 7</a>
+                <a href="tagasiside.php">Harjutus 7</a>
             </li>
             <li class="list-group-item  bg-dark p-3">
-                <a href="h08.php">Harjutus 8</a>
+                <a href="uudised.php">Harjutus 8</a>
             </li>
             <li class="list-group-item  bg-success p-3">
                 <a href="h09.php">Harjutus 9</a>

@@ -13,6 +13,8 @@ session_start();
 </head>
 <body>
     <div class="container">
+        <a href="uudised.php" class="btn btn-primary my-2">uudised</a>
+        <a href="tagasiside.php" class="btn btn-secondary my-2">tagasiside</a>
         <h2>Admin Login</h2>
         <hr>
         <form action="#" method="get">
